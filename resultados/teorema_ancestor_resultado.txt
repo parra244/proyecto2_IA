@@ -1,0 +1,384 @@
+Base de conocimiento:
+{'Parent(Anna,Bob)'}
+{'Parent(Bob,Carol)'}
+{'Parent(Carol,John)'}
+{'Ancestor(x,y)', '¬Parent(x,y)'}
+{'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'}
+{'¬Ancestor(Anna,John)'}
+
+Pasos de resolución:
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Anna,Bob)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Bob,Carol)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Carol,John)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(y,z)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(Anna,John)'} -> {'¬Parent(Anna,John)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(Anna,John)'} -> {'¬Parent(Anna,y)', '¬Ancestor(y,John)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Anna,Bob)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'Ancestor(Anna,Bob)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Ancestor(Bob,John)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Bob,Carol)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'Ancestor(Bob,Carol)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Carol,John)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'Ancestor(Carol,John)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(y,z)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(Anna,John)'} -> {'¬Parent(Anna,John)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,z)', 'Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Parent(Anna,John)', '¬Parent(y,John)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(Anna,John)'} -> {'¬Parent(Anna,y)', '¬Ancestor(y,John)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,Bob)'} -> {'Ancestor(x,Bob)', '¬Parent(x,Anna)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Bob,Carol)'} -> {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Carol,John)'} -> {'¬Parent(x,Carol)', 'Ancestor(x,John)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'¬Parent(Anna,John)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'¬Ancestor(Bob,John)'}
+Resolviendo {'Ancestor(Bob,Carol)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'Ancestor(Anna,Carol)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,z)', 'Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Parent(Anna,y)', '¬Parent(y,John)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,z)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Bob,John)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Parent(Anna,Carol)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Anna,Bob)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'Ancestor(Anna,Bob)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Ancestor(Bob,John)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'¬Parent(Anna,y)', '¬Parent(y,John)'} -> {'¬Parent(Bob,John)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} -> {'¬Ancestor(Carol,John)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} -> {'Ancestor(Anna,Carol)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Bob,Bob)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'Ancestor(x,Bob)', '¬Parent(x,Anna)'}
+Resolviendo {'Parent(Anna,Bob)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,z)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Bob,Carol)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'Ancestor(Bob,Carol)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(Anna,z)', '¬Parent(Bob,z)'} -> {'Ancestor(Anna,Carol)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'Ancestor(Bob,John)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'}
+Resolviendo {'Parent(Bob,Carol)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(x,y)', '¬Parent(x,y)'} -> {'Ancestor(Carol,John)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'Ancestor(Carol,John)'}
+Resolviendo {'Parent(Carol,John)'} y {'¬Parent(Anna,y)', '¬Parent(y,John)'} -> {'¬Parent(Anna,Carol)'}
+Resolviendo {'Parent(Carol,John)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'Ancestor(Bob,John)'}
+Resolviendo {'Parent(Carol,John)'} y {'¬Parent(Anna,John)', '¬Parent(y,John)'} -> {'¬Parent(Anna,John)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(x,Carol)', 'Ancestor(x,John)'}
+Resolviendo {'Parent(Carol,John)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(John,z)', 'Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} -> {'Ancestor(y,z)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(Anna,John)'} -> {'¬Parent(Anna,John)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,z)', 'Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Parent(Anna,John)', '¬Parent(y,John)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Parent(John,z)', 'Ancestor(Carol,z)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} -> {'¬Parent(Bob,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,z)', '¬Parent(y,z)', '¬Parent(Bob,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} -> {'¬Parent(Carol,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'} -> {'¬Parent(John,John)', '¬Parent(Anna,Carol)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'Ancestor(John,z)', '¬Parent(John,z)', '¬Parent(John,Carol)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Bob,z)', '¬Parent(Bob,Anna)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Bob,z)', '¬Parent(y,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Carol,z)', '¬Parent(Carol,z)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(Anna,John)', '¬Parent(y,John)', '¬Parent(John,John)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Parent(John,z)', 'Ancestor(Bob,z)'}
+Resolviendo {'Ancestor(x,y)', '¬Parent(x,y)'} y {'¬Ancestor(Bob,John)'} -> {'¬Parent(Bob,John)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(Anna,John)'} -> {'¬Parent(Anna,y)', '¬Ancestor(y,John)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,Bob)'} -> {'Ancestor(x,Bob)', '¬Parent(x,Anna)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Bob,Carol)'} -> {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Carol,John)'} -> {'¬Parent(x,Carol)', 'Ancestor(x,John)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} -> {'¬Parent(Carol,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Anna)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Parent(y,y)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Parent(x,Carol)', 'Ancestor(x,z)', '¬Parent(John,Carol)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} -> {'¬Parent(Bob,y)', '¬Ancestor(y,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,y)', '¬Parent(y,y)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Anna)', '¬Parent(Bob,Anna)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,z)', '¬Parent(Bob,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Anna)', '¬Parent(Bob,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} -> {'¬Parent(Carol,y)', '¬Ancestor(y,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(x,Carol)', '¬Parent(John,z)', 'Ancestor(x,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'} -> {'¬Parent(John,y)', '¬Parent(Anna,Carol)', '¬Ancestor(y,John)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} -> {'¬Parent(x,Bob)', '¬Parent(x,x)', 'Ancestor(x,Carol)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Parent(John,y)', '¬Ancestor(y,z)', '¬Parent(John,Carol)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Ancestor(John,z)', '¬Parent(x,Carol)', '¬Parent(x,x)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Parent(Bob,y)', '¬Ancestor(y,z)', '¬Parent(Bob,Anna)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,z)', '¬Parent(x,x)', '¬Parent(x,Anna)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Parent(y,y)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'¬Parent(x,x)', 'Ancestor(x,Bob)', '¬Parent(x,Anna)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(Carol,y)', '¬Ancestor(y,z)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(x,Bob)', '¬Parent(x,x)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Anna,Carol)'} -> {'¬Parent(x,Anna)', 'Ancestor(x,Carol)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Bob,John)'} -> {'Ancestor(x,John)', '¬Parent(x,Bob)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(Anna,y)', '¬Ancestor(y,John)', '¬Parent(y,y)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Parent(John,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(John,z)', '¬Parent(x,Bob)', 'Ancestor(x,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'Ancestor(x,John)', '¬Parent(x,Carol)', '¬Parent(x,x)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'¬Ancestor(Bob,John)'} -> {'¬Parent(Bob,y)', '¬Ancestor(y,John)'}
+Resolviendo {'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,y)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(x,x)', '¬Parent(x,z)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'Ancestor(y,z)', '¬Parent(y,z)'} -> {'¬Parent(Anna,John)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'¬Ancestor(Bob,John)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(Carol,John)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(y,John)', '¬Parent(Bob,y)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'Ancestor(Anna,z)', '¬Parent(Bob,z)'} -> {'¬Parent(Bob,John)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(Anna,Carol)'}
+Resolviendo {'¬Ancestor(Anna,John)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Anna,y)', '¬Parent(y,John)'}
+Resolviendo {'Ancestor(Anna,Bob)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Carol,Bob)', '¬Parent(John,Anna)'}
+Resolviendo {'Ancestor(Anna,Bob)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,Bob)', '¬Parent(Bob,Anna)'}
+Resolviendo {'Ancestor(Anna,Bob)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,Anna)', 'Ancestor(Bob,Bob)'}
+Resolviendo {'Ancestor(Bob,Carol)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'Ancestor(Anna,Carol)'}
+Resolviendo {'Ancestor(Bob,Carol)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Carol,Carol)', '¬Parent(John,Bob)'}
+Resolviendo {'Ancestor(Bob,Carol)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,Carol)', '¬Parent(Bob,Bob)'}
+Resolviendo {'Ancestor(Bob,Carol)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Parent(x,Anna)', 'Ancestor(x,Carol)'}
+Resolviendo {'Ancestor(Bob,Carol)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Bob,Carol)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,z)', 'Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Parent(Anna,y)', '¬Parent(y,John)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} -> {'¬Parent(Bob,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,y)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} -> {'¬Parent(Carol,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'} -> {'¬Parent(John,John)', '¬Parent(Anna,Carol)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Parent(x,Carol)', '¬Parent(John,z)', 'Ancestor(x,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Anna)', '¬Parent(Bob,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(Anna,y)', '¬Parent(y,John)', '¬Parent(y,y)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Parent(John,z)', 'Ancestor(Bob,z)'}
+Resolviendo {'Ancestor(y,z)', '¬Parent(y,z)'} y {'¬Ancestor(Bob,John)'} -> {'¬Parent(Bob,John)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Bob,John)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Parent(Anna,Carol)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Anna,John)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Carol,John)', '¬Parent(John,Carol)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Bob,Carol)', 'Ancestor(Anna,John)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} -> {'¬Parent(Anna,Bob)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Bob,John)', '¬Parent(Carol,Carol)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(x,John)', '¬Parent(x,Bob)'}
+Resolviendo {'Ancestor(Carol,John)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(Anna,Carol)', '¬Parent(Carol,Carol)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Anna,z)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(John,z)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(John,z)', '¬Parent(Bob,Carol)', 'Ancestor(Anna,z)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} -> {'¬Ancestor(John,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} -> {'Ancestor(Carol,Carol)', '¬Parent(John,Bob)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'Ancestor(Carol,z)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,z)', 'Ancestor(Carol,z)', '¬Parent(John,Anna)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Bob,z)', '¬Parent(Carol,Carol)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'Ancestor(Carol,Bob)', '¬Parent(John,Anna)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Carol,z)', '¬Parent(John,Bob)', '¬Ancestor(Carol,z)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(John,z)', '¬Parent(x,Bob)', 'Ancestor(x,z)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(Anna,Carol)', '¬Parent(Carol,Carol)', '¬Ancestor(John,John)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'Ancestor(Carol,John)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Ancestor(John,z)', 'Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Carol,z)', '¬Parent(John,Bob)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Parent(John,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,Bob)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,z)', 'Ancestor(Bob,z)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} -> {'Ancestor(Bob,Carol)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Bob,z)', '¬Parent(Carol,Carol)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Anna)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,z)', 'Ancestor(Bob,z)', '¬Parent(Carol,Anna)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(Carol,z)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'¬Parent(Carol,Anna)', 'Ancestor(Bob,Bob)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Bob,Bob)', '¬Parent(Anna,Bob)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'Ancestor(Bob,John)', '¬Parent(Carol,Carol)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(Bob,John)'} -> {'¬Ancestor(Carol,John)'}
+Resolviendo {'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Parent(y,z)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Anna,Carol)', '¬Ancestor(Carol,John)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(Anna,John)', '¬Parent(Bob,Anna)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'Ancestor(Anna,z)', '¬Parent(Bob,z)'} -> {'¬Parent(Bob,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'¬Parent(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,John)', '¬Parent(Anna,Carol)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Parent(x,Carol)', '¬Parent(Anna,x)', '¬Ancestor(John,John)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,John)', '¬Parent(x,Anna)', '¬Parent(Anna,x)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Anna,Bob)', '¬Ancestor(Bob,John)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(x,Bob)', '¬Ancestor(Carol,John)', '¬Parent(Anna,x)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'Ancestor(Bob,John)'} -> {'¬Parent(Anna,Bob)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(John,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(x,Carol)', '¬Parent(Anna,x)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'¬Parent(Carol,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Parent(Anna,y)', '¬Ancestor(y,John)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(x,x)', '¬Parent(Anna,x)', '¬Parent(x,John)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(Bob,z)', 'Ancestor(Carol,z)', '¬Parent(John,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(Bob,z)', '¬Parent(Bob,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} -> {'Ancestor(Anna,Carol)', '¬Parent(Bob,Bob)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Ancestor(John,z)', '¬Parent(Bob,Carol)', 'Ancestor(Anna,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(Bob,z)', 'Ancestor(Bob,z)', '¬Parent(Carol,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'Ancestor(Anna,Bob)', '¬Parent(Bob,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,Bob)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'Ancestor(Bob,John)'} -> {'Ancestor(Anna,John)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Anna,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(Bob,Carol)', 'Ancestor(Anna,John)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Carol,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Bob,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Parent(y,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Carol,z)', '¬Parent(John,Anna)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} -> {'¬Parent(John,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'¬Ancestor(Carol,z)', '¬Parent(Bob,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(John,z)', 'Ancestor(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Parent(John,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} -> {'Ancestor(Anna,Carol)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Ancestor(John,z)', '¬Parent(Carol,Carol)', 'Ancestor(Anna,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,z)', '¬Parent(Carol,Anna)', 'Ancestor(Anna,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,Anna)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'Ancestor(Anna,Bob)', '¬Parent(Carol,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'Ancestor(Anna,John)', '¬Parent(Carol,Carol)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Carol,y)', 'Ancestor(Anna,z)', '¬Parent(y,z)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,Carol)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Carol,z)', '¬Parent(John,Anna)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'Ancestor(Anna,z)', '¬Parent(Bob,z)'} -> {'Ancestor(Carol,z)', '¬Parent(John,Anna)', '¬Parent(Bob,z)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} -> {'¬Parent(John,y)', '¬Ancestor(y,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Parent(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,z)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} -> {'¬Parent(x,Bob)', 'Ancestor(Carol,Carol)', '¬Parent(John,x)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(Carol,z)', '¬Parent(John,x)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,z)', 'Ancestor(Carol,z)', '¬Parent(x,Anna)', '¬Parent(John,x)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,Carol)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Carol,z)', '¬Parent(John,Bob)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'Ancestor(Carol,Bob)', '¬Parent(x,Anna)', '¬Parent(John,x)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(John,y)', 'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,Bob)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(x,Bob)', 'Ancestor(Carol,z)', '¬Parent(John,x)', '¬Ancestor(Carol,z)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'Ancestor(Anna,Carol)'} -> {'Ancestor(Carol,Carol)', '¬Parent(John,Anna)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'Ancestor(Bob,John)'} -> {'Ancestor(Carol,John)', '¬Parent(John,Bob)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Anna,Carol)', '¬Parent(Carol,Carol)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Carol,z)', '¬Parent(John,Bob)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(x,Carol)', 'Ancestor(Carol,John)', '¬Parent(John,x)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'Ancestor(Carol,z)', '¬Parent(John,Bob)', '¬Parent(Carol,z)'}
+Resolviendo {'¬Parent(John,y)', 'Ancestor(Carol,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(x,x)', 'Ancestor(Carol,z)', '¬Parent(John,x)', '¬Parent(x,z)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Parent(Bob,Carol)', '¬Ancestor(John,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,y)', '¬Ancestor(y,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Bob,Bob)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'Ancestor(Bob,John)'} -> {'¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(John,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(Bob,Carol)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'¬Parent(Carol,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Bob,John)', '¬Parent(Anna,Anna)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Bob,y)', '¬Parent(y,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'Ancestor(Anna,z)', '¬Parent(Bob,z)'} -> {'¬Parent(Bob,z)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Parent(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,z)', '¬Parent(Bob,Carol)', 'Ancestor(Anna,z)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} -> {'¬Parent(x,Bob)', '¬Parent(Bob,x)', 'Ancestor(Anna,Carol)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Ancestor(John,z)', '¬Parent(x,Carol)', '¬Parent(Bob,x)', 'Ancestor(Anna,z)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,z)', '¬Parent(Bob,x)', '¬Parent(x,Anna)', 'Ancestor(Anna,z)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,Anna)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,Bob)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'Ancestor(Anna,Bob)', '¬Parent(Bob,x)', '¬Parent(x,Anna)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,x)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'Ancestor(Anna,Carol)'} -> {'Ancestor(Anna,Carol)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'Ancestor(Bob,John)'} -> {'Ancestor(Anna,John)', '¬Parent(Bob,Bob)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Ancestor(Anna,John)', '¬Parent(Anna,Anna)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(John,z)', 'Ancestor(Anna,z)', '¬Parent(Bob,Bob)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(x,Carol)', '¬Parent(Bob,x)', 'Ancestor(Anna,John)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,Bob)', '¬Parent(Carol,z)'}
+Resolviendo {'¬Parent(Bob,y)', 'Ancestor(Anna,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'Ancestor(Anna,z)', '¬Parent(Bob,x)', '¬Parent(x,x)', '¬Parent(x,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Parent(Bob,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'Ancestor(Bob,z)', '¬Parent(Carol,Anna)', '¬Parent(Bob,z)'}
+Resolviendo {'Ancestor(Anna,z)', '¬Parent(Bob,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(Bob,John)', '¬Parent(Anna,Anna)'}
+Resolviendo {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} y {'¬Parent(John,z)', 'Ancestor(Carol,z)'} -> {'¬Parent(John,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Parent(Carol,Carol)', '¬Ancestor(John,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Carol,Anna)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Carol,Bob)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(Carol,Carol)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Ancestor(Carol,John)', '¬Parent(Anna,Bob)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Carol,y)', '¬Parent(y,John)', '¬Parent(Anna,Bob)'}
+Resolviendo {'¬Parent(John,z)', 'Ancestor(Carol,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(John,z)', 'Ancestor(Bob,z)', '¬Parent(Carol,Carol)'}
+Resolviendo {'¬Parent(John,z)', 'Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(x,z)', '¬Parent(John,z)', '¬Parent(x,Bob)'}
+Resolviendo {'¬Parent(John,z)', 'Ancestor(Carol,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(John,John)', '¬Parent(Anna,Carol)', '¬Parent(Carol,Carol)'}
+Resolviendo {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'¬Parent(Anna,Carol)', '¬Parent(John,Carol)', '¬Ancestor(John,John)'}
+Resolviendo {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Parent(Anna,Carol)', '¬Ancestor(Bob,John)', '¬Parent(John,Anna)'}
+Resolviendo {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(Anna,Carol)', '¬Parent(John,Bob)', '¬Ancestor(Carol,John)'}
+Resolviendo {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(Anna,Carol)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(Anna,Carol)', '¬Ancestor(John,John)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(John,y)', '¬Parent(Anna,Carol)', '¬Parent(y,John)'}
+Resolviendo {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} y {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} -> {'Ancestor(John,Carol)', '¬Parent(John,Bob)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'Ancestor(Bob,Carol)', '¬Parent(Bob,Bob)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,y)', 'Ancestor(Bob,Carol)', '¬Parent(y,Bob)'}
+Resolviendo {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'Ancestor(Carol,Carol)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(x,Bob)', 'Ancestor(x,Carol)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'Ancestor(Bob,Carol)', '¬Parent(John,Bob)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(Bob,z)', '¬Parent(John,Anna)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} -> {'¬Ancestor(John,z)', '¬Parent(Bob,Carol)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,y)', '¬Ancestor(John,z)', 'Ancestor(Bob,z)', '¬Parent(y,Carol)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'¬Parent(John,Anna)', 'Ancestor(John,Bob)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(John,Bob)', '¬Parent(John,Carol)', '¬Ancestor(Carol,z)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(John,z)', '¬Parent(Carol,Carol)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(y,Carol)', '¬Parent(Anna,y)', '¬Parent(y,y)', '¬Ancestor(John,John)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'Ancestor(Bob,z)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'Ancestor(John,John)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'¬Ancestor(Bob,John)'} -> {'¬Parent(Bob,Carol)', '¬Ancestor(John,John)'}
+Resolviendo {'¬Parent(x,Carol)', '¬Ancestor(John,z)', 'Ancestor(x,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(John,y)', '¬Parent(y,z)', '¬Parent(John,Carol)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,y)', 'Ancestor(x,z)', '¬Ancestor(y,z)', '¬Parent(x,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} -> {'¬Parent(Carol,y)', '¬Ancestor(Bob,z)', 'Ancestor(Bob,z)', '¬Parent(y,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'Ancestor(Bob,Bob)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(Carol,z)', '¬Parent(Bob,Bob)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Ancestor(Bob,z)', '¬Parent(Carol,Anna)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'Ancestor(Bob,John)'} -> {'Ancestor(x,John)', '¬Parent(x,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Anna,y)', '¬Parent(y,y)', '¬Parent(y,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(John,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(Bob,z)', 'Ancestor(Bob,z)', '¬Parent(John,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'Ancestor(Bob,John)', '¬Parent(Bob,Carol)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'Ancestor(x,z)', '¬Parent(x,Anna)', '¬Parent(Carol,z)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'¬Ancestor(Bob,John)'} -> {'¬Ancestor(Bob,John)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Ancestor(Bob,z)', '¬Parent(x,Anna)', 'Ancestor(x,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Bob,y)', '¬Parent(y,z)', '¬Parent(Bob,Anna)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} -> {'¬Parent(Carol,x)', '¬Parent(x,Anna)', 'Ancestor(Bob,Bob)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(Carol,x)', '¬Parent(x,Bob)', 'Ancestor(Bob,z)', '¬Ancestor(Carol,z)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'Ancestor(Anna,Carol)'} -> {'Ancestor(Bob,Carol)', '¬Parent(Carol,Anna)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'Ancestor(Bob,John)'} -> {'Ancestor(Bob,John)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(Anna,Bob)', '¬Ancestor(Bob,John)', '¬Parent(Bob,Bob)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'¬Ancestor(John,z)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'¬Parent(Carol,x)', '¬Parent(x,Carol)', 'Ancestor(Bob,John)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'Ancestor(Bob,z)', '¬Parent(Carol,z)'} -> {'¬Parent(Carol,z)', '¬Parent(Carol,Bob)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'¬Ancestor(Bob,John)'} -> {'¬Parent(Carol,y)', '¬Ancestor(y,John)'}
+Resolviendo {'¬Parent(Carol,y)', 'Ancestor(Bob,z)', '¬Ancestor(y,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Carol,x)', 'Ancestor(Bob,z)', '¬Parent(x,x)', '¬Parent(x,z)'}
+Resolviendo {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} y {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} -> {'¬Parent(Carol,Anna)', 'Ancestor(Carol,Bob)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(x,Bob)', '¬Parent(x,Anna)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'Ancestor(Bob,Bob)', '¬Parent(John,Anna)'}
+Resolviendo {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Anna,y)', '¬Parent(y,y)', '¬Parent(y,Bob)'}
+Resolviendo {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(John,z)', 'Ancestor(Bob,z)'} -> {'Ancestor(Bob,z)', '¬Parent(John,Bob)', '¬Ancestor(Carol,z)'}
+Resolviendo {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} y {'¬Parent(x,Carol)', 'Ancestor(x,John)'} -> {'Ancestor(Carol,John)', '¬Parent(Carol,Carol)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} y {'¬Ancestor(Bob,John)'} -> {'¬Ancestor(Carol,John)', '¬Parent(Bob,Bob)'}
+Resolviendo {'Ancestor(x,z)', '¬Parent(x,Bob)', '¬Ancestor(Carol,z)'} y {'Ancestor(x,z)', '¬Parent(y,z)', '¬Parent(x,y)'} -> {'¬Parent(Carol,y)', '¬Parent(y,z)', '¬Parent(Carol,Bob)'}
+Resolviendo {'Ancestor(Bob,John)'} y {'¬Ancestor(y,John)', '¬Parent(Anna,y)', '¬Parent(y,y)'} -> {'¬Parent(Bob,Bob)', '¬Parent(Anna,Bob)'}
+Resolviendo {'Ancestor(Bob,John)'} y {'¬Ancestor(Bob,John)'} -> set()
+ Se derivó la cláusula vacía. Teorema demostrado.
+
+Resultado final:
+El teorema fue demostrado 

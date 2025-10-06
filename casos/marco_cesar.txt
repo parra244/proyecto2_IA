@@ -1,0 +1,13 @@
+# Base de conocimiento: Marco odia a César
+
+1. Hombre(Marco)
+2. Pompeyano(Marco)
+3. ¬Pompeyano(x3) ∨ Romano(x3)
+4. Gobernante(Cesar)
+5. ¬Romano(x5) ∨ Leal(x5, Cesar) ∨ Odia(x5, Cesar)
+6. ¬Hombre(x6) ∨ ¬Gobernante(y6) ∨ ¬IntentaAsesinar(x6, y6) ∨ ¬Leal(x6, y6)
+7. IntentaAsesinar(Marco, Cesar)
+
+# Hipótesis: Odia(Marco, Cesar)
+# Negación de la hipótesis:
+8. ¬Odia(Marco, Cesar)

@@ -1,0 +1,212 @@
+Base de conocimiento:
+{'Hombre(Marco)'}
+{'Pompeyano(Marco)'}
+{'¬Pompeyano(x3)', 'Romano(x3)'}
+{'Gobernante(Cesar)'}
+{'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'}
+{'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'}
+{'IntentaAsesinar(Marco, Cesar)'}
+{'¬Odia(Marco, Cesar)'}
+
+Pasos de resolución:
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Pompeyano(x3)', 'Romano(x3)'} -> {'Romano(Marco)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} -> {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Hombre(x6)', '¬Romano(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Odia(Marco, Cesar)'} -> {'Leal(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'IntentaAsesinar(Marco, Cesar)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Pompeyano(x3)', 'Romano(x3)'} -> {'Romano(Marco)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} -> {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'Leal(Marco,Cesar)', '¬Romano(Marco)'} -> {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬Hombre(x6)', '¬Pompeyano(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Hombre(x6)', '¬Romano(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Odia(Marco, Cesar)'} -> {'Leal(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'Romano(Marco)'} -> {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'IntentaAsesinar(Marco, Cesar)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'Leal(Marco,Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'¬IntentaAsesinar(x5,Cesar)', '¬Pompeyano(x5)', '¬Gobernante(Cesar)', 'Odia(x5,Cesar)', '¬Hombre(x5)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'¬Pompeyano(Marco)', 'Leal(Marco,Cesar)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'Romano(Marco)'} -> {'Leal(Marco,Cesar)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'¬Pompeyano(x5)', '¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', 'Odia(x5,Cesar)'}
+Resolviendo {'Romano(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'} -> {'¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Pompeyano(x5)', '¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', 'Odia(x5,Cesar)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', '¬Gobernante(Cesar)', 'Odia(x5,Cesar)', '¬Pompeyano(x5)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Pompeyano(x6)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Pompeyano(x3)', 'Romano(x3)'} -> {'Romano(Marco)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Pompeyano(x5)', '¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', 'Odia(x5,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', '¬Gobernante(Cesar)', 'Odia(x5,Cesar)', '¬Pompeyano(x5)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Pompeyano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Pompeyano(Marco)'} y {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Pompeyano(Marco)'} y {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'} -> {'Leal(Marco,Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} -> {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'Leal(Marco,Cesar)', '¬Romano(Marco)'} -> {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬Hombre(x6)', '¬Pompeyano(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x3)', 'Romano(x3)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Pompeyano(x6)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Hombre(Marco)', '¬Romano(Marco)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', '¬Gobernante(Cesar)', 'Odia(x5,Cesar)', '¬Pompeyano(x5)'} -> {'¬Pompeyano(x5)', '¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', 'Odia(x5,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Leal(Marco,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Pompeyano(x6)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Pompeyano(x6)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Gobernante(Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Hombre(x6)', '¬Romano(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Odia(Marco, Cesar)'} -> {'Leal(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'Romano(Marco)'} -> {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Odia(x5, Cesar)', '¬Romano(x5)', 'Leal(x5, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'IntentaAsesinar(Marco, Cesar)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'Leal(Marco,Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'¬IntentaAsesinar(x5,Cesar)', '¬Pompeyano(x5)', '¬Gobernante(Cesar)', 'Odia(x5,Cesar)', '¬Hombre(x5)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} y {'Leal(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Pompeyano(x5)', '¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', 'Odia(x5,Cesar)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'} -> {'¬Hombre(Marco)', '¬Romano(Marco)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', '¬Gobernante(Cesar)', 'Odia(x5,Cesar)', '¬Pompeyano(x5)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Leal(Marco,Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Pompeyano(x6)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'IntentaAsesinar(Marco, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'¬Pompeyano(Marco)', 'Leal(Marco,Cesar)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Pompeyano(x5)', '¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', 'Odia(x5,Cesar)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', '¬Gobernante(Cesar)', 'Odia(x5,Cesar)', '¬Pompeyano(x5)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'} -> {'Leal(Marco,Cesar)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Pompeyano(x6)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'}
+Resolviendo {'¬Odia(Marco, Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'Romano(Marco)'} -> {'Leal(Marco,Cesar)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', '¬Romano(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', '¬Romano(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} y {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} -> {'¬Pompeyano(x5)', '¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', 'Odia(x5,Cesar)'}
+Resolviendo {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} y {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} y {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)'}
+Resolviendo {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} y {'Leal(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)'}
+Resolviendo {'Romano(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Romano(Marco)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'Romano(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)'}
+Resolviendo {'Romano(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Romano(Marco)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Romano(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'Romano(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Romano(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} y {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} y {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} y {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Pompeyano(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Pompeyano(x5)', 'Odia(x5,Cesar)', 'Leal(x5,Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} y {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} y {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'} y {'Leal(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'} -> {'¬Hombre(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'} -> {'¬Pompeyano(Marco)', '¬Hombre(Marco)'}
+Resolviendo {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)'} -> {'¬Hombre(Marco)'}
+Resolviendo {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'} y {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Leal(Marco,Cesar)', 'Odia(Marco,Cesar)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'} -> {'¬Pompeyano(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)'} -> {'¬Gobernante(Cesar)'}
+Resolviendo {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)', '¬Pompeyano(Marco)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)'}
+Resolviendo {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'} y {'Leal(Marco,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬Leal(x6, y6)', '¬Gobernante(y6)', '¬IntentaAsesinar(x6, y6)'} -> {'¬Leal(Marco,y6)', '¬IntentaAsesinar(Marco,y6)', '¬Gobernante(y6)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'} -> {'¬Gobernante(Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', '¬Leal(x6,Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', '¬Leal(Marco,Cesar)'} -> {'¬Leal(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Pompeyano(x5)', '¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', 'Odia(x5,Cesar)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x5)', '¬IntentaAsesinar(x5,Cesar)', '¬Gobernante(Cesar)', 'Odia(x5,Cesar)', '¬Pompeyano(x5)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Gobernante(Cesar)', '¬Pompeyano(x6)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'Odia(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)', '¬Romano(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Romano(x6)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'} -> {'Odia(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(x6)', '¬IntentaAsesinar(x6,Cesar)', 'Odia(x6,Cesar)', '¬Pompeyano(x6)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)'} -> {'Odia(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', '¬Romano(Marco)'} -> {'¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Pompeyano(Marco)', '¬Hombre(Marco)', 'Odia(Marco,Cesar)'} -> {'¬Pompeyano(Marco)', 'Odia(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'} -> {'¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)', 'Odia(Marco,Cesar)', '¬Romano(Marco)'} -> {'Odia(Marco,Cesar)', '¬Romano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)'} -> {'¬IntentaAsesinar(Marco,Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Pompeyano(Marco)', '¬Hombre(Marco)'} -> {'¬Pompeyano(Marco)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Pompeyano(Marco)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Hombre(Marco)', '¬Gobernante(Cesar)'} -> {'¬Pompeyano(Marco)', '¬IntentaAsesinar(Marco,Cesar)', '¬Gobernante(Cesar)'}
+Resolviendo {'Hombre(Marco)'} y {'¬Hombre(Marco)'} -> set()
+ Se derivó la cláusula vacía. Teorema demostrado.
+
+Resultado final:
+El teorema fue demostrado 

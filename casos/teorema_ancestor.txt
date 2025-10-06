@@ -1,0 +1,17 @@
+# Teorema lógico: "Anna es ancestro de John"
+# Enunciado: Si Anna es madre de Bob, Bob de Carol y Carol de John,
+# entonces Anna es ancestro de John.
+# Fuente: ejemplo clásico de inferencia lógica (Herbrand, 1930)
+
+1. Parent(Anna,Bob)
+2. Parent(Bob,Carol)
+3. Parent(Carol,John)
+
+# Regla 1: Todo padre es ancestro
+4. ¬Parent(x,y) ∨ Ancestor(x,y)
+
+# Regla 2: Si x es padre de y y y es ancestro de z, entonces x es ancestro de z
+5. ¬Parent(x,y) ∨ ¬Ancestor(y,z) ∨ Ancestor(x,z)
+
+# Negación de la hipótesis (queremos refutarla)
+6. ¬Ancestor(Anna,John)
