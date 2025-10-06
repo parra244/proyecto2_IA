@@ -19,10 +19,16 @@ Este proyecto implementa un sistema de resolución por refutación para lógica 
 ├── casos/             # Archivos de entrada con casos de prueba
 │   ├── marco_cesar.txt
 │   └── teorema_ancestor.txt
-└── resultados/        # Archivos de salida con los resultados
-    ├── marco_cesar_resultado.txt
-    └── teorema_ancestor_resultado.txt
+├── resultados/        # Archivos de salida con los resultados
+│   ├── marco_cesar_resultado.txt
+│   └── teorema_ancestor_resultado.txt
+├── G7_parra.pdf       # Documentación del proyecto
+└── Imagen de WhatsApp 2025-10-06 a las 06.39.31_fcbae724.jpg  # Imagen del proyecto
 ```
+
+## Imagen del Proyecto
+
+![Imagen del Proyecto](Imagen%20de%20WhatsApp%202025-10-06%20a%20las%2006.39.31_fcbae724.jpg)
 
 ## Casos de Prueba
 
